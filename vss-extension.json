@@ -1,0 +1,85 @@
+{
+    "manifestVersion": 1,
+    "id": "markdown-to-api",
+    "name": "Markdown to API",
+    "version": "0.1.0",
+    "publisher": "clydedsouza",
+    "public": false,
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Generate JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "icons": {
+        "default": "images/icon.png"        
+    },
+    "files": [
+        {
+            "path": "buildAndReleaseTask"
+        }
+    ],
+    "tags": [
+        "Markdown",
+        "JSON",
+        "markdown2json",
+        "Markdown to JSON",
+        "API generator",
+        "static API generator",
+        "Markdown API",
+        "FrontMatter",
+        "YAML",
+        "yml",
+        "md",
+        "Azure DevOps",
+        "Azure DevOps extension",
+        "task",
+        "build",
+        "release",
+        "pipeline"
+    ],
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE.md"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/ClydeDz/markdown-to-api"
+    },
+    "links": {
+        "home": {
+            "uri": "https://github.com/ClydeDz/markdown-to-api"
+        },
+        "learn": {
+            "uri": "https://github.com/ClydeDz/markdown-to-api#readme"
+        },
+        "support": {
+            "uri": "https://github.com/ClydeDz/markdown-to-api#support"
+        },
+        "repository": {
+            "uri": "https://github.com/ClydeDz/markdown-to-api"
+        },
+        "issues": {
+            "uri": "https://github.com/ClydeDz/markdown-to-api/issues"
+        }
+    },
+    "contributions": [
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildAndReleaseTask"
+            }
+        }
+    ]
+}

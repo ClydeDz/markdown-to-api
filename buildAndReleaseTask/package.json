@@ -1,0 +1,18 @@
+{
+  "name": "buildandreleasetask",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.16",
+    "@types/q": "^1.5.4",
+    "azure-pipelines-task-lib": "^2.12.0",
+    "processmd": "^4.5.3",
+    "typescript": "^4.0.2"
+  }
+}

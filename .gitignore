@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Exclude Azure DevOps custom task key file generated when dev task is executed
+.taskkey
+
+# Exclude local testing resources
+testing
+testing-config.json
+testing-script.ps1
