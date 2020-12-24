@@ -1,3 +1,5 @@
+const configFileSchema = require("./schema");
+
 function validateJSON(inputJSON){
     try{
         JSON.parse(inputJSON);
@@ -7,11 +9,15 @@ function validateJSON(inputJSON){
 }
 
 function validateConfigFile(configFile){ 
-    console.log(!configFile , configFile.length == undefined , configFile.length < 1);
+    const errorMessage = `Invalid config file detected. Please supply a valid config file.`;
     if(!configFile || configFile.length == undefined || configFile.length < 1) {
-        throw new Error(`Invalid config file detected. Please supply a valid config file.`); 
+        throw new Error(errorMessage); 
     } 
+    var validate = require('jsonschema').validate;
+    if(!validate(configFile, configFileSchema).valid){
+        throw new Error(errorMessage); 
+    }
 }
 
 exports.validateJSON = validateJSON;
-exports.validateConfigFile = validateConfigFile; 
+exports.validateConfigFile = validateConfigFile;
