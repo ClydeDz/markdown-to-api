@@ -1,12 +1,12 @@
 const tl = require("azure-pipelines-task-lib/task");
 const fs = require("fs"); 
 const cp = require("child_process");
+const util = require("./util/index");
 const configFilePathKey = "configFilePath";
 
 async function processJSON(parsedJSON) {
-
-    for(var i=0; i<parsedJSON.length; i++){
-        console.log(parsedJSON[i].input);   
+    
+    for(var i=0; i<parsedJSON.length; i++){  
         let inputDirectory = parsedJSON[i].input;
         let outputDirectory = parsedJSON[i].output;
         let summaryOutputDirectory = parsedJSON[i].summaryOutput;
@@ -14,10 +14,10 @@ async function processJSON(parsedJSON) {
         let inputFileFilter = parsedJSON[i].inputFileFilter;
         
         if (!fs.existsSync(outputDirectory)) {
-            fs.mkdirSync(outputDirectory, {recursive: true}, err => {});
+            fs.mkdirSync(outputDirectory, {recursive: true}, err => { throw err });
         } 
         if (!fs.existsSync(summaryOutputDirectory)) {
-            fs.mkdirSync(summaryOutputDirectory, {recursive: true}, err => {});
+            fs.mkdirSync(summaryOutputDirectory, {recursive: true}, err => { throw err });
         } 
 
         // Converting markdown to API
@@ -26,27 +26,28 @@ async function processJSON(parsedJSON) {
         let commandToExecute = `.\\node_modules\\.bin\\processmd "./${inputDirectory}/**/*${inputFileFilter}" --stdout --outputDir "./${outputDirectory}" > "./${summaryOutputDirectory}/${summaryFilename}"`;
         cp.exec(commandToExecute, (error, stdout, stderr) => {
             if (error) {
-                console.log(`error: ${error.message}`);
-                return;
+                throw new Error(`An error occurred while converting Markdown files into API. Details: ${error.message}`);
             }
             if (stderr) {
-                console.log(`stderr: ${stderr}`);
-                return;
-            }
-            console.log(`stdout: ${stdout}`);
+                throw new Error(`An error occurred while converting Markdown files into API. Details: ${stderr}`);
+            } 
         });
     }
+    console.log("Completed the process successfully");
 }
 
 async function run() {
     try {  
-        const configFile = tl.getPathInput(configFilePathKey, true, true);      
-      
+        const configFile = tl.getPathInput(configFilePathKey, true, true);
+
         let parsedJSON = [];
         fs.readFile(configFile, (err, data) => {
-            if (err) throw err; 
+            if (err) {
+                throw new Error("An error occurred while reading the JSON config file. Please try again later or report this issue on GitHub.");
+            }
+            util.validateJSON(data);
             parsedJSON = JSON.parse(data); 
-            // error if parsedJSON is empty
+            util.validateConfigFile(parsedJSON); 
             processJSON(parsedJSON);
         }); 
     } catch (err) {
