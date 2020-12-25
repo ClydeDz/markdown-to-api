@@ -13,7 +13,7 @@ function validateConfigFile(configFile){
     if(!configFile || configFile.length == undefined || configFile.length < 1) {
         throw new Error(errorMessage); 
     } 
-    var validate = require('jsonschema').validate;
+    const validate = require("jsonschema").validate;
     if(!validate(configFile, configFileSchema).valid){
         throw new Error(errorMessage); 
     }

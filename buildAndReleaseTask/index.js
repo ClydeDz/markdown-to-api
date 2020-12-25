@@ -14,10 +14,10 @@ async function processJSON(parsedJSON) {
         let inputFileFilter = parsedJSON[i].inputFileFilter;
         
         if (!fs.existsSync(outputDirectory)) {
-            fs.mkdirSync(outputDirectory, {recursive: true}, err => { throw err });
+            fs.mkdirSync(outputDirectory, {recursive: true}, err => { throw err; });
         } 
         if (!fs.existsSync(summaryOutputDirectory)) {
-            fs.mkdirSync(summaryOutputDirectory, {recursive: true}, err => { throw err });
+            fs.mkdirSync(summaryOutputDirectory, {recursive: true}, err => { throw err; });
         } 
 
         // Converting markdown to API
