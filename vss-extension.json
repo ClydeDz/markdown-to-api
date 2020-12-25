@@ -2,9 +2,11 @@
     "manifestVersion": 1,
     "id": "markdown-to-api",
     "name": "Markdown to API",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "clydedsouza",
-    "public": false,
+    "galleryFlags": [
+        "Preview"
+    ],
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"

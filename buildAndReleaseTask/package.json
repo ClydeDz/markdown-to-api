@@ -1,7 +1,7 @@
 {
   "name": "buildandreleasetask",
   "version": "1.0.0",
-  "description": "",
+  "description":  "Generate JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
