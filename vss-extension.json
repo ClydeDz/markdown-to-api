@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "markdown-to-api",
     "name": "Markdown to API",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "publisher": "clydedsouza",
     "galleryFlags": [
         "Preview"
