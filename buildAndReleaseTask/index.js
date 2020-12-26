@@ -20,7 +20,22 @@ function processJSON(parsedJSON) {
             fs.mkdirSync(summaryOutputDirectory, {recursive: true}, err => { throw err; });
         } 
 
+        cp.exec("dir", (error, stdout, stderr) => {
+            console.log(stdout);
+            if (error || stderr) {
+                throw new Error(`An error occurred while listing the current directory items.`);
+            }
+        });
+
+        cp.exec(".\\node_modules\\.bin\\processmd --version", (error, stdout, stderr) => {
+            console.log(stdout);
+            if (error || stderr) {
+                throw new Error(`An error occurred while printing the version number.`);
+            }
+        });
+
         // Converting markdown to API
+        //.\\node_modules\\.bin\\
         //.\node_modules\.bin\processmd "portfolio/**/*.md" --stdout --outputDir testpoutput/testp > testp.json
          
         let commandToExecute = `.\\node_modules\\.bin\\processmd "./${inputDirectory}/**/*${inputFileFilter}" --stdout --outputDir "./${outputDirectory}" > "./${summaryOutputDirectory}/${summaryFilename}"`;
