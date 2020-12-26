@@ -90,14 +90,24 @@
     },
     "contributions": [
         {
-            "id": "custom-build-release-task",
+            "id": "install-task",
             "type": "ms.vss-distributed-task.task",
             "targets": [
-                "ms.vss-distributed-task.tasks"
+              "ms.vss-distributed-task.tasks"
             ],
             "properties": {
-                "name": "buildAndReleaseTask"
+              "name": "install"
             }
-        }
+          },
+          {
+            "id": "process-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+              "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+              "name": "process"
+            }
+          }
     ]
 }
