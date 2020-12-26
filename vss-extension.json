@@ -21,8 +21,24 @@
     },
     "files": [
         {
-            "path": "buildAndReleaseTask"
-        }
+            "path": "images"
+        },
+        {
+            "path": "src/install",
+            "packagePath": "install"
+          },
+          {
+            "path": "src/process",
+            "packagePath": "process"
+          },
+          {
+            "path": "src/node_modules",
+            "packagePath": "install/node_modules"
+          },
+          {
+            "path": "src/node_modules",
+            "packagePath": "process/node_modules"
+          }
     ],
     "tags": [
         "Markdown",
