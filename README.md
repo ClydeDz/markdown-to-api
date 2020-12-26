@@ -21,15 +21,16 @@ Add this task before the `Markdown to API` task so all the required dependencies
 Add this task to process your Markdown files into JSON files. This task requires one user input - the location of the config file including the name of the file itself. So, in the screenshot above, the JSON config file was located in the `Example1` folder and was named `markdown-to-api.json` hence that's the value that was entered in the field. Remember, you can name the config anything you like, and as long as your config file follows the schema (details below), you should be sweet!  
 
 #### Schema of the config file
-The following JSON properties are expected in the config file.   
-| Property        | Description                                                   | Mandatory? | Default value |
-|-----------------|---------------------------------------------------------------|------------|---------------|
-| input           | Path to folder where the input Markdown files are located.    | Yes        | TODO          |
-| output          | Path to folder where the processed JSON files will be placed. | Yes        | TODO          |
-| summaryOutput   | Path to folder where the summary JSON file will be placed.    | Yes        | TODO          |
-| filename        | The filename of the summary JSON file.                        | Yes        | TODO          |
-| inputFileFilter | The file extension of the input files.                        | No         | *.md          |
-
+The following JSON properties are expected in the config file.  
+     
+| Property        | Description                                                   | Mandatory? | Default value |    
+|-----------------|---------------------------------------------------------------|------------|---------------|   
+| input           | Path to folder where the input Markdown files are located.    | Yes        | TODO          |   
+| output          | Path to folder where the processed JSON files will be placed. | Yes        | TODO          |   
+| summaryOutput   | Path to folder where the summary JSON file will be placed.    | Yes        | TODO          |   
+| filename        | The filename of the summary JSON file.                        | Yes        | TODO          |    
+| inputFileFilter | The file extension of the input files.                        | No         | `*.md`        |    
+       
 Find more information on the usage and different scenarios in [this GitHub repository](https://github.com/ClydeDz/markdown-to-api-examples).   
 
 ## Support  
