@@ -4,7 +4,7 @@ const cp = require("child_process");
 const util = require("./util/index");
 const configFilePathKey = "configFilePath";
 
-async function processJSON(parsedJSON) {
+function processJSON(parsedJSON) {
     
     for(var i=0; i<parsedJSON.length; i++){  
         let inputDirectory = parsedJSON[i].input;
@@ -36,7 +36,7 @@ async function processJSON(parsedJSON) {
     console.log("Completed the process successfully");
 }
 
-async function run() {
+function run() {
     try {  
         const configFile = tl.getPathInput(configFilePathKey, true, true);
 
