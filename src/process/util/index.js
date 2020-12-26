@@ -21,7 +21,11 @@ function validateConfigFile(configFile){
 }
 
 function isInputFileFilterValid(inputFileFilter) {
-    !constants.VALID_FILE_EXTENSIONS.includes(inputFileFilter);
+    let isValid = false;
+    constants.VALID_FILE_EXTENSIONS.map((ele) => { 
+        isValid = isValid || inputFileFilter.indexOf(ele) !== -1;
+    });
+    return isValid;
 }
 
 function sanitizeConfigFile(configFile) {
@@ -34,7 +38,7 @@ function sanitizeConfigFile(configFile) {
     if(!configFile.filename){
         configFile.filename = constants.DEFAULT_SUMMARY_FILENAME;
     }
-    if(!configFile.inputFileFilter || isInputFileFilterValid(configFile.inputFileFilter)) {
+    if(!configFile.inputFileFilter || !isInputFileFilterValid(configFile.inputFileFilter)) {
         configFile.inputFileFilter = constants.VALID_FILE_EXTENSIONS[0];
     } 
     return configFile;
@@ -43,3 +47,4 @@ function sanitizeConfigFile(configFile) {
 exports.validateJSON = validateJSON;
 exports.validateConfigFile = validateConfigFile;
 exports.sanitizeConfigFile = sanitizeConfigFile;
+exports.isInputFileFilterValid = isInputFileFilterValid;

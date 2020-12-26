@@ -1,15 +1,20 @@
 {
-  "name": "buildandreleasetask",
+  "name": "markdown-to-api",
   "version": "1.0.0",
   "description": "Generate JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha tests/*.test.js --reporter mocha-junit-reporter --timeout 10000 --exit",
+    "devtest": "mocha tests/*.test.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "azure-pipelines-task-lib": "^2.12.0",
     "jsonschema": "^1.4.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "mocha-junit-reporter": "^2.0.0"
   }
 }

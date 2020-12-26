@@ -110,3 +110,4 @@ dist
 testing
 testing-config.json
 testing-script.ps1
+test-results.xml

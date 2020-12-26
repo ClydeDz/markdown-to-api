@@ -1,4 +1,4 @@
-const VALID_FILE_EXTENSIONS = ["*.md", "*.markdown"];
+const VALID_FILE_EXTENSIONS = [".md", ".markdown"];
 const DEFAULT_OUTPUT_DIRECTORY = "output/all";
 const DEFAULT_SUMMARY_OUTPUT_DIRECTORY = "output/summary";
 const DEFAULT_SUMMARY_FILENAME = `summaryJSON${Date.now()}.json`;
