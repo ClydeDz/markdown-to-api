@@ -38,4 +38,4 @@ The easiest way is to [create an issue](https://github.com/ClydeDz/markdown-to-a
 ## Credits
 Copyright (c) 2020 Clyde D'Souza  
 This extension is developed by [Clyde D'Souza](https://twitter.com/clydedz).    
-The npm package [processmd](https://www.npmjs.com/package/processmd) is developed by [Tim](https://github.com/tscanlin)
+The npm package [processmd](https://www.npmjs.com/package/processmd) is developed by [Tim Scanlin](https://github.com/tscanlin).
