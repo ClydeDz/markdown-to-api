@@ -9,14 +9,16 @@ function validateJSON(inputJSON){
     }
 }
 
-function validateConfigFile(configFile){ 
-    const errorMessage = `Invalid config file detected. Please supply a valid config file.`;
-    if(!configFile || configFile.length == undefined || configFile.length < 1) {
-        throw new Error(errorMessage); 
+function validateConfigFile(configFile){  
+    if(!configFile) {
+        throw new Error("Invalid config file detected. Please supply a valid config file."); 
     } 
-    const validate = require("jsonschema").validate;
-    if(!validate(configFile, configFileSchema).valid){
-        throw new Error(errorMessage); 
+    
+    var Validator = require("jsonschema").Validator;
+    var v = new Validator();    
+    const isSchemaValid = v.validate(configFile, configFileSchema).valid;
+    if(!isSchemaValid) {
+        throw new Error("Invalid schema detected. Please check your config file."); 
     }
 }
 
@@ -28,6 +30,14 @@ function isInputFileFilterValid(inputFileFilter) {
     return isValid;
 }
 
+function isFilenameValid(filename) {
+    let isValid = false;
+    constants.VALID_FILENAME_EXTENSIONS.map((ele) => { 
+        isValid = isValid || filename.indexOf(ele) !== -1;
+    });
+    return isValid;
+}
+
 function sanitizeConfigFile(configFile) {
     if(!configFile.output){
         configFile.output = constants.DEFAULT_OUTPUT_DIRECTORY;
@@ -35,7 +45,7 @@ function sanitizeConfigFile(configFile) {
     if(!configFile.summaryOutput){
         configFile.summaryOutput = constants.DEFAULT_SUMMARY_OUTPUT_DIRECTORY;
     }
-    if(!configFile.filename){
+    if(!configFile.filename || !isFilenameValid(configFile.filename)){
         configFile.filename = constants.DEFAULT_SUMMARY_FILENAME;
     }
     if(!configFile.inputFileFilter || !isInputFileFilterValid(configFile.inputFileFilter)) {
@@ -48,3 +58,4 @@ exports.validateJSON = validateJSON;
 exports.validateConfigFile = validateConfigFile;
 exports.sanitizeConfigFile = sanitizeConfigFile;
 exports.isInputFileFilterValid = isInputFileFilterValid;
+exports.isFilenameValid = isFilenameValid;
