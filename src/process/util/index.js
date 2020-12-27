@@ -16,14 +16,14 @@ function validateConfigFile(configFile) {
     for(let i=0; i<configFile.length; i++) { 
         let element = configFile[0];
         if(!element.inputDir){
-            throw new Error("Config file doesn't contain input property. Please supply an input directory."); 
+            throw new Error("Config file doesn't contain 'inputDir' property. Please supply an input directory."); 
         }
     }
 }
 
 function isInputFileFilterValid(inputFileFilter) {
     let isValid = false;
-    constants.VALID_FILE_EXTENSIONS.forEach((ele) => { 
+    constants.VALID_INPUT_FILE_EXTENSIONS.forEach((ele) => { 
         isValid = isValid || inputFileFilter.indexOf(ele) !== -1;
         return;
     });
@@ -32,7 +32,7 @@ function isInputFileFilterValid(inputFileFilter) {
 
 function isFilenameValid(filename) {
     let isValid = false;
-    constants.VALID_FILENAME_EXTENSIONS.forEach((ele) => { 
+    constants.VALID_SUMMARY_FILENAME_EXTENSIONS.forEach((ele) => { 
         isValid = isValid || filename.indexOf(ele) !== -1;
         return;
     });
@@ -50,7 +50,7 @@ function sanitizeConfigValues(configFile) {
         configFile.summaryFilename = constants.DEFAULT_SUMMARY_FILENAME;
     }
     if(!configFile.inputFileExtension || !isInputFileFilterValid(configFile.inputFileExtension)) {
-        configFile.inputFileExtension = constants.VALID_FILE_EXTENSIONS[0];
+        configFile.inputFileExtension = constants.VALID_INPUT_FILE_EXTENSIONS[0];
     } 
     return configFile;
 }

@@ -24,15 +24,15 @@ describe("sanitizeConfigValues()", function () {
     // inputFileExtension
     it("empty input file extension is supplied", function () {
         let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": ""}); 
-        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_FILE_EXTENSIONS[0]);
+        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_INPUT_FILE_EXTENSIONS[0]);
     });  
     it("null input file extension is supplied", function () {
         let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": null}); 
-        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_FILE_EXTENSIONS[0]);
+        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_INPUT_FILE_EXTENSIONS[0]);
     });  
     it("invalid input file extension is supplied", function () {
         let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": ".markd"}); 
-        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_FILE_EXTENSIONS[0]);
+        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_INPUT_FILE_EXTENSIONS[0]);
     }); 
     it("valid input file extension is supplied", function () {
         let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": ".md"}); 
