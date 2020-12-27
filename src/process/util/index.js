@@ -1,4 +1,3 @@
-const configFileSchema = require("./schema");
 const constants = require("./constants");
 
 function validateJSON(inputJSON){
