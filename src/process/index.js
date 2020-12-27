@@ -4,7 +4,7 @@ const fs = require("fs");
 const util = require("./util/index");
 const configFilePathKey = "configFilePath";
 
-function processJSON(parsedJSON) { 
+function processMarkdownToJSON(parsedJSON) { 
     var versionArgs = new Array();
     versionArgs.push("--version");  
     tl.execSync("processmd", versionArgs);
@@ -43,7 +43,7 @@ function run() {
             util.isJSONParsable(data);
             parsedJSON = JSON.parse(data); 
             util.validateConfigFile(parsedJSON); 
-            processJSON(parsedJSON);
+            processMarkdownToJSON(parsedJSON);
         }); 
     } catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
