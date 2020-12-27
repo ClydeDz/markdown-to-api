@@ -4,11 +4,13 @@ const fs = require("fs");
 const util = require("./util/index");
 const configFilePathKey = "configFilePath";
 
-function processMarkdownToJSON(parsedJSON) { 
+function printVersionInformation() {
     var versionArgs = new Array();
     versionArgs.push("--version");  
     tl.execSync("processmd", versionArgs);
+}
 
+function processMarkdownToJSON(parsedJSON) {   
     for(var i=0; i<parsedJSON.length; i++) {  
         let configValues = util.sanitizeConfigValues(parsedJSON[i]);  
         
@@ -28,7 +30,7 @@ function processMarkdownToJSON(parsedJSON) {
         processmdArgs.push(`./${configValues.summaryOutput}/${configValues.filename}`);
         tl.execSync("processmd", processmdArgs);
     }
-    console.log("Completed the process successfully");
+    console.log("\n", "Completed the process successfully!");
 }
 
 function run() {
@@ -43,6 +45,7 @@ function run() {
             util.isJSONParsable(data);
             parsedJSON = JSON.parse(data); 
             util.validateConfigFile(parsedJSON); 
+            printVersionInformation();
             processMarkdownToJSON(parsedJSON);
         }); 
     } catch (err) {
