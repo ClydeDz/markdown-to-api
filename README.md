@@ -1,3 +1,10 @@
+<div align="center">
+	<br>
+	<img width="156" src="https://raw.githubusercontent.com/ClydeDz/markdown-to-api/main/images/icon.png" alt="Markdown to API Azure DevOps Task icon">
+	<br>
+	<br>
+</div>
+
 # Markdown to API 
 This is an Azure DevOps task that generates JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.  
 
