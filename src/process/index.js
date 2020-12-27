@@ -5,9 +5,15 @@ const util = require("./util/index");
 const configFilePathKey = "configFilePath";
 
 function printVersionInformation() {
-    var versionArgs = new Array();
-    versionArgs.push("--version");  
-    tl.execSync("processmd", versionArgs);
+    try {
+        var versionArgs = new Array();
+        versionArgs.push("--version");  
+        tl.execSync("processmd", versionArgs);
+    } catch (err) {
+        throw new Error(`Please run 'Install Markdown to API Dependencies' before this task to install all the required dependencies. 
+            Learn more here: https://github.com/ClydeDz/markdown-to-api#tasks.
+            \n\nError details: ${err}`);
+    }    
 }
 
 function processMarkdownToJSON(parsedJSON) {   
