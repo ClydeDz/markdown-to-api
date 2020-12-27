@@ -4,33 +4,28 @@ const fs = require("fs");
 const util = require("./util/index");
 const configFilePathKey = "configFilePath";
 
-function processJSON(parsedJSON) {
-    tl.setResourcePath(path.join(__dirname, "task.json"));
-    for(var i=0; i<parsedJSON.length; i++){  
-        let inputDirectory = parsedJSON[i].input;
-        let outputDirectory = parsedJSON[i].output;
-        let summaryOutputDirectory = parsedJSON[i].summaryOutput;
-        let summaryFilename = parsedJSON[i].filename;
-        let inputFileFilter = parsedJSON[i].inputFileFilter;
-        
-        if (!fs.existsSync(outputDirectory)) {
-            fs.mkdirSync(outputDirectory, {recursive: true}, err => { throw err; });
-        } 
-        if (!fs.existsSync(summaryOutputDirectory)) {
-            fs.mkdirSync(summaryOutputDirectory, {recursive: true}, err => { throw err; });
-        } 
+function processJSON(parsedJSON) { 
+    var versionArgs = new Array();
+    versionArgs.push("--version");  
+    tl.execSync("processmd", versionArgs);
 
-        var versionArgs = new Array();
-        versionArgs.push("--version");  
-        tl.execSync("processmd", versionArgs);
+    for(var i=0; i<parsedJSON.length; i++) {  
+        let configItem = util.sanitizeConfigFile(parsedJSON[i]);  
+        
+        if (!fs.existsSync(configItem.output)) {
+            fs.mkdirSync(configItem.output, {recursive: true}, err => { throw err; });
+        } 
+        if (!fs.existsSync(configItem.summaryOutput)) {
+            fs.mkdirSync(configItem.summaryOutput, {recursive: true}, err => { throw err; });
+        } 
 
         var processmdArgs = new Array();
-        processmdArgs.push(`./${inputDirectory}/**/*${inputFileFilter}`);  
+        processmdArgs.push(`./${configItem.input}/**/*${configItem.inputFileFilter}`);  
         processmdArgs.push(`--stdout`);  
         processmdArgs.push(`--outputDir`);
-        processmdArgs.push(`./${outputDirectory}`);
+        processmdArgs.push(`./${configItem.output}`);
         processmdArgs.push(`--summaryOutput`);
-        processmdArgs.push(`./${summaryOutputDirectory}/${summaryFilename}`);
+        processmdArgs.push(`./${configItem.summaryOutput}/${configItem.filename}`);
         tl.execSync("processmd", processmdArgs);
     }
     console.log("Completed the process successfully");

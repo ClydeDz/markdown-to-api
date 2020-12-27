@@ -102,7 +102,7 @@ const configFileSchema= {
                         ]
                     }
                 },
-                "additionalProperties": true
+                "additionalProperties": false
             }
         ]
     }
