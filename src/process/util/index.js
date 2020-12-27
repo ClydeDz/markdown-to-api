@@ -13,13 +13,8 @@ function validateConfigFile(configFile){
     if(!configFile) {
         throw new Error("Invalid config file detected. Please supply a valid config file."); 
     } 
-    
-    var Validator = require("jsonschema").Validator;
-    var v = new Validator();    
-    const isSchemaValid = v.validate(configFile, configFileSchema).valid;
-    if(!isSchemaValid) {
-        throw new Error("Invalid schema detected. Please check your config file."); 
-    }
+
+    // Add schema validation
 }
 
 function isInputFileFilterValid(inputFileFilter) {
