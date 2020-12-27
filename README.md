@@ -12,8 +12,8 @@ This is an Azure DevOps task that generates JSON files from Markdown files which
 [![Azure DevOps tests](https://img.shields.io/azure-devops/tests/clydedsouza/Markdown%2520to%2520API/33?logo=Azure%20DevOps)](https://clydedsouza.visualstudio.com/Markdown%20to%20API/_build) 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ClydeDz_markdown-to-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=ClydeDz_markdown-to-api) 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ClydeDz_markdown-to-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ClydeDz_markdown-to-api) 
-![MIT License](https://img.shields.io/static/v1.svg?label=📜%20License&message=MIT&color=informational) 
-
+![MIT License](https://img.shields.io/static/v1.svg?label=📜%20License&message=MIT&color=informational)     
+      
 ## Tasks
 ![tasks](https://raw.githubusercontent.com/ClydeDz/markdown-to-api/main/images/markdowntoapitasks.png)   
 The extension consists of the following two tasks. You need to add these tasks in this order. 
@@ -40,6 +40,7 @@ The following JSON properties are expected in the config file.
 | summaryFilename    | The filename of the summary JSON file.                        | No         | `summaryJSON<DATETIME_VALUE>.json`          |    
 
        
+## Examples   
 Find more information on the usage and different scenarios in [this GitHub repository](https://github.com/ClydeDz/markdown-to-api-examples).   
 
 ## Support  
@@ -48,4 +49,4 @@ The easiest way is to [create an issue](https://github.com/ClydeDz/markdown-to-a
 ## Credits
 Copyright (c) 2020 Clyde D'Souza  
 This extension is developed by [Clyde D'Souza](https://twitter.com/clydedz).    
-The npm package [processmd](https://www.npmjs.com/package/processmd) is developed by [Tim Scanlin](https://github.com/tscanlin).
+The npm package [processmd](https://www.npmjs.com/package/processmd) which converts Markdown to JSON is developed by [Tim Scanlin](https://github.com/tscanlin).
