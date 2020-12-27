@@ -25,10 +25,10 @@ The following JSON properties are expected in the config file.
      
 | Property        | Description                                                   | Mandatory? | Default value |    
 |-----------------|---------------------------------------------------------------|------------|---------------|   
-| input           | Path to folder where the input Markdown files are located.    | Yes        | TODO          |   
-| output          | Path to folder where the processed JSON files will be placed. | Yes        | TODO          |   
-| summaryOutput   | Path to folder where the summary JSON file will be placed.    | Yes        | TODO          |   
-| filename        | The filename of the summary JSON file.                        | Yes        | TODO          |    
+| input           | Path to folder where the input Markdown files are located.    | Yes        | N/A           |   
+| output          | Path to folder where the processed JSON files will be placed. | No         | `output/all`  |   
+| summaryOutput   | Path to folder where the summary JSON file will be placed.    | No         | `output/summary`  |   
+| filename        | The filename of the summary JSON file.                        | No         | `summaryJSON<DATETIME_STRING>.json`          |    
 | inputFileFilter | The file extension of the input files.                        | No         | `*.md`        |    
        
 Find more information on the usage and different scenarios in [this GitHub repository](https://github.com/ClydeDz/markdown-to-api-examples).   
