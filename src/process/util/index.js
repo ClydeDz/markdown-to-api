@@ -39,7 +39,7 @@ function isFilenameValid(filename) {
     return isValid;
 }
 
-function sanitizeConfigFile(configFile) {
+function sanitizeConfigValues(configFile) {
     if(!configFile.output){
         configFile.output = constants.DEFAULT_OUTPUT_DIRECTORY;
     }
@@ -57,6 +57,6 @@ function sanitizeConfigFile(configFile) {
 
 exports.isJSONParsable = isJSONParsable;
 exports.validateConfigFile = validateConfigFile;
-exports.sanitizeConfigFile = sanitizeConfigFile;
+exports.sanitizeConfigValues = sanitizeConfigValues;
 exports.isInputFileFilterValid = isInputFileFilterValid;
 exports.isFilenameValid = isFilenameValid;

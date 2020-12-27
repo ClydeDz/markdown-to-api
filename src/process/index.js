@@ -10,7 +10,7 @@ function processJSON(parsedJSON) {
     tl.execSync("processmd", versionArgs);
 
     for(var i=0; i<parsedJSON.length; i++) {  
-        let configItem = util.sanitizeConfigFile(parsedJSON[i]);  
+        let configItem = util.sanitizeConfigValues(parsedJSON[i]);  
         
         if (!fs.existsSync(configItem.output)) {
             fs.mkdirSync(configItem.output, {recursive: true}, err => { throw err; });
