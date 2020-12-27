@@ -11,7 +11,7 @@ function printVersionInformation() {
 }
 
 function processMarkdownToJSON(parsedJSON) {   
-    for(var i=0; i<parsedJSON.length; i++) {  
+    for (var i=0; i<parsedJSON.length; i++) {  
         let configValues = util.sanitizeConfigValues(parsedJSON[i]);  
         
         if (!fs.existsSync(configValues.outputDir)) {
