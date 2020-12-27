@@ -1,7 +1,6 @@
-const configFileSchema = require("./schema");
 const constants = require("./constants");
 
-function validateJSON(inputJSON){
+function isJSONParsable(inputJSON){
     try{
         JSON.parse(inputJSON);
     } catch (err) {
@@ -9,16 +8,16 @@ function validateJSON(inputJSON){
     }
 }
 
-function validateConfigFile(configFile){  
-    if(!configFile) {
+function validateConfigFile(configFile) {  
+    if(!configFile || configFile.length == undefined || configFile.length < 1) {
         throw new Error("Invalid config file detected. Please supply a valid config file."); 
-    } 
-    
-    var Validator = require("jsonschema").Validator;
-    var v = new Validator();    
-    const isSchemaValid = v.validate(configFile, configFileSchema).valid;
-    if(!isSchemaValid) {
-        throw new Error("Invalid schema detected. Please check your config file."); 
+    }  
+
+    for(let i=0; i<configFile.length; i++) { 
+        let element = configFile[0];
+        if(!element.input){
+            throw new Error("Config file doesn't contain input property. Please supply an input directory."); 
+        }
     }
 }
 
@@ -40,7 +39,7 @@ function isFilenameValid(filename) {
     return isValid;
 }
 
-function sanitizeConfigFile(configFile) {
+function sanitizeConfigValues(configFile) {
     if(!configFile.output){
         configFile.output = constants.DEFAULT_OUTPUT_DIRECTORY;
     }
@@ -56,8 +55,8 @@ function sanitizeConfigFile(configFile) {
     return configFile;
 }
 
-exports.validateJSON = validateJSON;
+exports.isJSONParsable = isJSONParsable;
 exports.validateConfigFile = validateConfigFile;
-exports.sanitizeConfigFile = sanitizeConfigFile;
+exports.sanitizeConfigValues = sanitizeConfigValues;
 exports.isInputFileFilterValid = isInputFileFilterValid;
 exports.isFilenameValid = isFilenameValid;

@@ -4,31 +4,33 @@ const fs = require("fs");
 const util = require("./util/index");
 const configFilePathKey = "configFilePath";
 
-function processJSON(parsedJSON) { 
+function printVersionInformation() {
     var versionArgs = new Array();
     versionArgs.push("--version");  
     tl.execSync("processmd", versionArgs);
+}
 
+function processMarkdownToJSON(parsedJSON) {   
     for(var i=0; i<parsedJSON.length; i++) {  
-        let configItem = util.sanitizeConfigFile(parsedJSON[i]);  
+        let configValues = util.sanitizeConfigValues(parsedJSON[i]);  
         
-        if (!fs.existsSync(configItem.output)) {
-            fs.mkdirSync(configItem.output, {recursive: true}, err => { throw err; });
+        if (!fs.existsSync(configValues.output)) {
+            fs.mkdirSync(configValues.output, {recursive: true}, err => { throw err; });
         } 
-        if (!fs.existsSync(configItem.summaryOutput)) {
-            fs.mkdirSync(configItem.summaryOutput, {recursive: true}, err => { throw err; });
+        if (!fs.existsSync(configValues.summaryOutput)) {
+            fs.mkdirSync(configValues.summaryOutput, {recursive: true}, err => { throw err; });
         } 
 
         var processmdArgs = new Array();
-        processmdArgs.push(`./${configItem.input}/**/*${configItem.inputFileFilter}`);  
+        processmdArgs.push(`./${configValues.input}/**/*${configValues.inputFileFilter}`);  
         processmdArgs.push(`--stdout`);  
         processmdArgs.push(`--outputDir`);
-        processmdArgs.push(`./${configItem.output}`);
+        processmdArgs.push(`./${configValues.output}`);
         processmdArgs.push(`--summaryOutput`);
-        processmdArgs.push(`./${configItem.summaryOutput}/${configItem.filename}`);
+        processmdArgs.push(`./${configValues.summaryOutput}/${configValues.filename}`);
         tl.execSync("processmd", processmdArgs);
     }
-    console.log("Completed the process successfully");
+    console.log("\n", "Completed the process successfully!");
 }
 
 function run() {
@@ -40,10 +42,11 @@ function run() {
             if (err) {
                 throw new Error("An error occurred while reading the JSON config file. Please try again later or report this issue on GitHub.");
             }
-            util.validateJSON(data);
+            util.isJSONParsable(data);
             parsedJSON = JSON.parse(data); 
             util.validateConfigFile(parsedJSON); 
-            processJSON(parsedJSON);
+            printVersionInformation();
+            processMarkdownToJSON(parsedJSON);
         }); 
     } catch (err) {
         tl.setResult(tl.TaskResult.Failed, err.message);
