@@ -1,3 +1,12 @@
+---
+name: Feature request
+about: Create a feature request to add something cool to this tool.
+title: ''
+labels: ''
+assignees: ''
+
+--- 
+
 ## Type of issue  
 - [ ] Bug
 - [x] Feature request 

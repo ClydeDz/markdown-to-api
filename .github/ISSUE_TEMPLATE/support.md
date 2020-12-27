@@ -1,3 +1,12 @@
+---
+name: Support request
+about: Create a support request for general Q&A.
+title: ''
+labels: ''
+assignees: ''
+
+--- 
+
 ## Type of issue  
 - [ ] Bug
 - [ ] Feature request 
