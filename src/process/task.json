@@ -9,8 +9,8 @@
     "author": "Clyde D'Souza",
     "version": {
         "Major": 0,
-        "Minor": 1,
-        "Patch": 9
+        "Minor": 2,
+        "Patch": 0
     },
     "instanceNameFormat": "Execute Markdown to API",
     "inputs": [ 

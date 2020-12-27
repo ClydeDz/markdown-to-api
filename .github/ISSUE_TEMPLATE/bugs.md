@@ -1,3 +1,12 @@
+---
+name: Bug report
+about: Create a report to improve this tool.
+title: ''
+labels: ''
+assignees: ''
+
+--- 
+  
 ## Type of issue   
 - [x] Bug
 - [ ] Feature request 
