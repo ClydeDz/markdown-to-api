@@ -8,12 +8,17 @@ function validateJSON(inputJSON){
     }
 }
 
-function validateConfigFile(configFile){  
-    if(!configFile) {
+function validateConfigFile(configFile) {  
+    if(!configFile || configFile.length == undefined || configFile.length < 1) {
         throw new Error("Invalid config file detected. Please supply a valid config file."); 
-    } 
+    }  
 
-    // Add schema validation
+    for(let i=0; i<configFile.length; i++) { 
+        let element = configFile[0];
+        if(!element.input){
+            throw new Error("Config file doesn't contain input property. Please supply an input directory."); 
+        }
+    }
 }
 
 function isInputFileFilterValid(inputFileFilter) {

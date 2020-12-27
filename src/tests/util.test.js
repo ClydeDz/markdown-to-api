@@ -132,15 +132,29 @@ describe("validateJSON()", function () {
 
 describe("validateConfigFile()", function () {
 
-    // TODO: These need to be corrected.
-    it("valid JSON supplied", function () {
-        let parsedJSON = JSON.parse("{\"foo\":\"bar\"}"); 
+    it("valid config supplied", function () {
+        let parsedJSON = JSON.parse("[{\"input\":\"bar\"}]");  
         assert.doesNotThrow(() => util.validateConfigFile(parsedJSON));
     }); 
-
-    it("invalid JSON supplied", function () {
+    it("invalid config supplied because its a single object", function () { 
+        let parsedJSON = JSON.parse("{\"foo\":\"bar\"}"); 
+        assert.throws(() => util.validateConfigFile(parsedJSON));
+    }); 
+    it("invalid config supplied because its missing the require input property", function () {
+        let parsedJSON = JSON.parse("[{\"foo\":\"bar\"}]");  
+        assert.throws(() => util.validateConfigFile(parsedJSON));
+    }); 
+    it("null config supplied", function () {
         let parsedJSON = JSON.parse(null); 
         assert.throws(() => util.validateConfigFile(parsedJSON));
     });  
+    it("invalid config supplied", function () {
+        let parsedJSON = JSON.parse("[]"); 
+        assert.throws(() => util.validateConfigFile(parsedJSON));
+    }); 
+    it("invalid config supplied because it doesn't contain any object(s)", function () {
+        let parsedJSON = JSON.parse("[{}]"); 
+        assert.throws(() => util.validateConfigFile(parsedJSON));
+    });
 
 });
