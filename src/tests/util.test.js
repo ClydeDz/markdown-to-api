@@ -100,32 +100,32 @@ describe("isFilenameValid()", function () {
 
 });
 
-describe("validateJSON()", function () {
+describe("isJSONParsable()", function () {
 
     it("valid JSON supplied", function () {
         let validJSON = "{\"foo\":\"bar\"}";
-        assert.doesNotThrow(() => util.validateJSON(validJSON));
+        assert.doesNotThrow(() => util.isJSONParsable(validJSON));
     }); 
     it("null supplied", function () {
-        assert.doesNotThrow(() => util.validateJSON(null));
+        assert.doesNotThrow(() => util.isJSONParsable(null));
     }); 
     it("undefined supplied", function () {
-        assert.throws(() => util.validateJSON(undefined));
+        assert.throws(() => util.isJSONParsable(undefined));
     });
     it("string supplied", function () {
-        assert.throws(() => util.validateJSON("some random string"));
+        assert.throws(() => util.isJSONParsable("some random string"));
     }); 
     it("invalid JSON supplied", function () {
         let invalidJSON = "{'name': 1,}"; 
-        assert.throws(() => util.validateJSON(invalidJSON)); 
+        assert.throws(() => util.isJSONParsable(invalidJSON)); 
     }); 
     it("invalid JSON supplied", function () {
         let invalidJSON = "{}"; 
-        assert.doesNotThrow(() => util.validateJSON(invalidJSON)); 
+        assert.doesNotThrow(() => util.isJSONParsable(invalidJSON)); 
     }); 
     it("invalid JSON supplied", function () {
         let invalidJSON = "[{}]"; 
-        assert.doesNotThrow(() => util.validateJSON(invalidJSON)); 
+        assert.doesNotThrow(() => util.isJSONParsable(invalidJSON)); 
     }); 
 
 });

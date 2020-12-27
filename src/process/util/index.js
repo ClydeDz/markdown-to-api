@@ -1,6 +1,6 @@
 const constants = require("./constants");
 
-function validateJSON(inputJSON){
+function isJSONParsable(inputJSON){
     try{
         JSON.parse(inputJSON);
     } catch (err) {
@@ -55,7 +55,7 @@ function sanitizeConfigFile(configFile) {
     return configFile;
 }
 
-exports.validateJSON = validateJSON;
+exports.isJSONParsable = isJSONParsable;
 exports.validateConfigFile = validateConfigFile;
 exports.sanitizeConfigFile = sanitizeConfigFile;
 exports.isInputFileFilterValid = isInputFileFilterValid;

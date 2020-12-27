@@ -40,7 +40,7 @@ function run() {
             if (err) {
                 throw new Error("An error occurred while reading the JSON config file. Please try again later or report this issue on GitHub.");
             }
-            util.validateJSON(data);
+            util.isJSONParsable(data);
             parsedJSON = JSON.parse(data); 
             util.validateConfigFile(parsedJSON); 
             processJSON(parsedJSON);
