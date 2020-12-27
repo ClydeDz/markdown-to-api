@@ -1,7 +1,9 @@
 {
     "rules": {
         "semi": ["error", "always"],
-        "quotes": ["error", "double", { "allowTemplateLiterals": true }]
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+        "keyword-spacing": ["error", { "before": true }],
+        "space-before-blocks": ["error"]
     },
     "extends": "eslint:recommended",
     "parserOptions": {

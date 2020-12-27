@@ -5,15 +5,15 @@ const constants = require("../process/util/constants");
 describe("isInputFileFilterValid()", function () {
 
     it("valid file extension detected", function () {
-        let isValid = util.isInputFileFilterValid("*.md"); 
+        let isValid = util.isInputFileFilterValid(".md"); 
         assert.strictEqual(isValid, true);
     }); 
     it("valid custom file extension detected", function () {
-        let isValid = util.isInputFileFilterValid("*pin.md"); 
+        let isValid = util.isInputFileFilterValid(".pin.md"); 
         assert.strictEqual(isValid, true);
     }); 
     it("invalid file extension detected", function () {
-        let isValid = util.isInputFileFilterValid("*.txt"); 
+        let isValid = util.isInputFileFilterValid(".txt"); 
         assert.strictEqual(isValid, false);
     }); 
 
@@ -21,79 +21,79 @@ describe("isInputFileFilterValid()", function () {
 
 describe("sanitizeConfigValues()", function () {
 
-    // inputFileFilter
-    it("empty input file filter is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"inputFileFilter": ""}); 
-        assert.strictEqual(sanitizedConfig.inputFileFilter, constants.VALID_FILE_EXTENSIONS[0]);
+    // inputFileExtension
+    it("empty input file extension is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": ""}); 
+        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_INPUT_FILE_EXTENSIONS[0]);
     });  
-    it("null input file filter is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"inputFileFilter": null}); 
-        assert.strictEqual(sanitizedConfig.inputFileFilter, constants.VALID_FILE_EXTENSIONS[0]);
+    it("null input file extension is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": null}); 
+        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_INPUT_FILE_EXTENSIONS[0]);
     });  
-    it("invalid input file filter is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"inputFileFilter": ".markd"}); 
-        assert.strictEqual(sanitizedConfig.inputFileFilter, constants.VALID_FILE_EXTENSIONS[0]);
+    it("invalid input file extension is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": ".markd"}); 
+        assert.strictEqual(sanitizedConfig.inputFileExtension, constants.VALID_INPUT_FILE_EXTENSIONS[0]);
     }); 
-    it("valid input file filter is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"inputFileFilter": ".md"}); 
-        assert.strictEqual(sanitizedConfig.inputFileFilter, ".md");
+    it("valid input file extension is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"inputFileExtension": ".md"}); 
+        assert.strictEqual(sanitizedConfig.inputFileExtension, ".md");
     }); 
 
-    // filename
-    it("empty filename is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"filename": ""}); 
-        assert.strictEqual(sanitizedConfig.filename.indexOf("summaryJSON"), 0);
+    // summaryFilename
+    it("empty summaryFilename is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"summaryFilename": ""}); 
+        assert.strictEqual(sanitizedConfig.summaryFilename.indexOf("summaryJSON"), 0);
     });
-    it("null filename is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"filename": null}); 
-        assert.strictEqual(sanitizedConfig.filename.indexOf("summaryJSON"), 0);
+    it("null summaryFilename is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"summaryFilename": null}); 
+        assert.strictEqual(sanitizedConfig.summaryFilename.indexOf("summaryJSON"), 0);
     }); 
-    it("valid filename is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"filename": "products.json"}); 
-        assert.strictEqual(sanitizedConfig.filename, "products.json");
+    it("valid summaryFilename is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"summaryFilename": "products.json"}); 
+        assert.strictEqual(sanitizedConfig.summaryFilename, "products.json");
     }); 
-    it("valid filename but invalid file extension is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"filename": "products.jayson"}); 
-        assert.strictEqual(sanitizedConfig.filename.indexOf("summaryJSON"), 0);
+    it("valid summaryFilename but invalid file extension is supplied", function () {
+        let sanitizedConfig = util.sanitizeConfigValues({"summaryFilename": "products.jayson"}); 
+        assert.strictEqual(sanitizedConfig.summaryFilename.indexOf("summaryJSON"), 0);
     });
 
-    // summaryOutput
+    // summaryOutputDir
     it("valid summary output directory is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"summaryOutput": "output/mysummary"}); 
-        assert.strictEqual(sanitizedConfig.summaryOutput, "output/mysummary");
+        let sanitizedConfig = util.sanitizeConfigValues({"summaryOutputDir": "output/mysummary"}); 
+        assert.strictEqual(sanitizedConfig.summaryOutputDir, "output/mysummary");
     });
     it("empty summary output directory is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"summaryOutput": ""}); 
-        assert.strictEqual(sanitizedConfig.summaryOutput, "output/summary");
+        let sanitizedConfig = util.sanitizeConfigValues({"summaryOutputDir": ""}); 
+        assert.strictEqual(sanitizedConfig.summaryOutputDir, "output/summary");
     });
     it("null summary output directory is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"summaryOutput": null}); 
-        assert.strictEqual(sanitizedConfig.summaryOutput, "output/summary");
+        let sanitizedConfig = util.sanitizeConfigValues({"summaryOutputDir": null}); 
+        assert.strictEqual(sanitizedConfig.summaryOutputDir, "output/summary");
     });
 
-    // output
+    // outputDir
     it("valid output directory is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"output": "output/all"}); 
-        assert.strictEqual(sanitizedConfig.output, "output/all");
+        let sanitizedConfig = util.sanitizeConfigValues({"outputDir": "output/all"}); 
+        assert.strictEqual(sanitizedConfig.outputDir, "output/all");
     });
     it("empty output directory is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"output": ""}); 
-        assert.strictEqual(sanitizedConfig.output, "output/all");
+        let sanitizedConfig = util.sanitizeConfigValues({"outputDir": ""}); 
+        assert.strictEqual(sanitizedConfig.outputDir, "output/all");
     });
     it("null output directory is supplied", function () {
-        let sanitizedConfig = util.sanitizeConfigValues({"output": null}); 
-        assert.strictEqual(sanitizedConfig.output, "output/all");
+        let sanitizedConfig = util.sanitizeConfigValues({"outputDir": null}); 
+        assert.strictEqual(sanitizedConfig.outputDir, "output/all");
     });
 
 });
 
 describe("isFilenameValid()", function () {
 
-    it("valid filename extension detected", function () {
+    it("valid summary filename extension detected", function () {
         let isValid = util.isFilenameValid("products.md"); 
         assert.strictEqual(isValid, false);
     }); 
-    it("invalid filename extension detected", function () {
+    it("invalid summary filename extension detected", function () {
         let isValid = util.isFilenameValid("products.json"); 
         assert.strictEqual(isValid, true);
     }); 
@@ -133,7 +133,7 @@ describe("isJSONParsable()", function () {
 describe("validateConfigFile()", function () {
 
     it("valid config supplied", function () {
-        let parsedJSON = JSON.parse("[{\"input\":\"bar\"}]");  
+        let parsedJSON = JSON.parse("[{\"inputDir\":\"bar\"}]");  
         assert.doesNotThrow(() => util.validateConfigFile(parsedJSON));
     }); 
     it("invalid config supplied because its a single object", function () { 

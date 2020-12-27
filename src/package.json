@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/*.test.js --reporter mocha-junit-reporter --timeout 10000 --exit",
-    "devtest": "mocha tests/*.test.js"
+    "mocha": "mocha tests/*.test.js",
+    "lint": "eslint \"**\\*.js\""
   },
   "author": "",
   "license": "MIT",
@@ -14,6 +15,7 @@
   },
   "devDependencies": {
     "mocha": "^8.2.1",
-    "mocha-junit-reporter": "^2.0.0"
+    "mocha-junit-reporter": "^2.0.0",
+    "eslint": "^7.16.0"
   }
 }
