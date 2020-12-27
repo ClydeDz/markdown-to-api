@@ -24,16 +24,18 @@ function validateConfigFile(configFile){
 
 function isInputFileFilterValid(inputFileFilter) {
     let isValid = false;
-    constants.VALID_FILE_EXTENSIONS.map((ele) => { 
+    constants.VALID_FILE_EXTENSIONS.forEach((ele) => { 
         isValid = isValid || inputFileFilter.indexOf(ele) !== -1;
+        return;
     });
     return isValid;
 }
 
 function isFilenameValid(filename) {
     let isValid = false;
-    constants.VALID_FILENAME_EXTENSIONS.map((ele) => { 
+    constants.VALID_FILENAME_EXTENSIONS.forEach((ele) => { 
         isValid = isValid || filename.indexOf(ele) !== -1;
+        return;
     });
     return isValid;
 }
