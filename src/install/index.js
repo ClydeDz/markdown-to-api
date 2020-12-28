@@ -12,4 +12,5 @@ function run() {
     }
 }
 
+// Starts here
 run();

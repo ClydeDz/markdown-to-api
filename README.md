@@ -44,7 +44,7 @@ The following JSON properties are expected in the config file.
 Find more information on the usage and different scenarios in [this GitHub repository](https://github.com/ClydeDz/markdown-to-api-examples).   
 
 ## Support  
-The easiest way is to [create an issue](https://github.com/ClydeDz/markdown-to-api/issues/new/choose) in the GitHub repository.  
+The easiest way is to [create an issue](https://github.com/ClydeDz/markdown-to-api/issues/new/choose) on GitHub.  
 
 ## Credits
 This extension is developed by [Clyde D'Souza](https://twitter.com/clydedz).    
