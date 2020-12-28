@@ -4,9 +4,7 @@
     "name": "Markdown to API",
     "version": "0.3.0",
     "publisher": "clydedsouza",
-    "galleryFlags": [
-        "Preview"
-    ],
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
