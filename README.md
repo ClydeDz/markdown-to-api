@@ -47,6 +47,8 @@ Find more information on the usage and different scenarios in [this GitHub repos
 The easiest way is to [create an issue](https://github.com/ClydeDz/markdown-to-api/issues/new/choose) in the GitHub repository.  
 
 ## Credits
-Copyright (c) 2020 Clyde D'Souza  
 This extension is developed by [Clyde D'Souza](https://twitter.com/clydedz).    
-The npm package [processmd](https://www.npmjs.com/package/processmd) which converts Markdown to JSON is developed by [Tim Scanlin](https://github.com/tscanlin).
+The npm package [processmd](https://www.npmjs.com/package/processmd) which converts Markdown to JSON is developed by [Tim Scanlin](https://github.com/tscanlin).   
+     
+---    
+Copyright (c) 2020 [Clyde D'Souza](https://twitter.com/clydedz)
