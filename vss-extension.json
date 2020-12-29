@@ -10,7 +10,7 @@
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "Generate JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.",
+    "description": "Generate JSON files from Markdown files which can then be consumed by your front-end app. Basically, a static API generator.",
     "categories": [
         "Azure Pipelines"
     ],

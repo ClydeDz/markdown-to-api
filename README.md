@@ -6,7 +6,7 @@
 </div>
 
 # Markdown to API 
-This is an Azure DevOps task that generates JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.  
+This is an Azure DevOps task that generates JSON files from Markdown files which can then be consumed by your front-end app. Basically, a static API generator.  
 
 [![Azure DevOps builds](https://img.shields.io/azure-devops/build/clydedsouza/e3d74bc0-b833-41ea-8ec1-0d74115d662a/33?logo=Azure%20DevOps)](https://clydedsouza.visualstudio.com/Markdown%20to%20API/_build) 
 [![Azure DevOps tests](https://img.shields.io/azure-devops/tests/clydedsouza/Markdown%2520to%2520API/33?logo=Azure%20DevOps)](https://clydedsouza.visualstudio.com/Markdown%20to%20API/_build) 

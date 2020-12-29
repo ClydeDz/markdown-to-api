@@ -1,7 +1,7 @@
 {
   "name": "markdown-to-api",
   "version": "1.0.0",
-  "description": "Generate JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.",
+  "description": "Generate JSON files from Markdown files which can then be consumed by your front-end app. Basically, a static API generator.",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/*.test.js --reporter mocha-junit-reporter --timeout 10000 --exit",
