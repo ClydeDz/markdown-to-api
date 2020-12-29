@@ -85,6 +85,9 @@
         },
         "issues": {
             "uri": "https://github.com/ClydeDz/markdown-to-api/issues"
+        },
+        "privacypolicy": {
+            "uri": "https://github.com/ClydeDz/visualstudio-marketplace/blob/main/PRIVACY.md"
         }
     },
     "contributions": [
