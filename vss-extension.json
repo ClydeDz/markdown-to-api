@@ -2,17 +2,15 @@
     "manifestVersion": 1,
     "id": "markdown-to-api",
     "name": "Markdown to API",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "publisher": "clydedsouza",
-    "galleryFlags": [
-        "Preview"
-    ],
+    "public": true,
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
     ],    
-    "description": "Generate JSON files from Markdown files which can then be consumed by your frontend app. Basically, a static API generator.",
+    "description": "Generate JSON files from Markdown files which can then be consumed by your front-end app. Basically, a static API generator.",
     "categories": [
         "Azure Pipelines"
     ],
