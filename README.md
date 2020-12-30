@@ -12,8 +12,11 @@ This is an Azure DevOps task that generates JSON files from Markdown files which
 [![Azure DevOps tests](https://img.shields.io/azure-devops/tests/clydedsouza/Markdown%2520to%2520API/33?logo=Azure%20DevOps)](https://clydedsouza.visualstudio.com/Markdown%20to%20API/_build) 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=ClydeDz_markdown-to-api&metric=alert_status)](https://sonarcloud.io/dashboard?id=ClydeDz_markdown-to-api) 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ClydeDz_markdown-to-api&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=ClydeDz_markdown-to-api) 
-![MIT License](https://img.shields.io/static/v1.svg?label=📜%20License&message=MIT&color=informational)     
-      
+[![Visual Studio Marketplace Installs - Azure DevOps Extension](https://img.shields.io/visual-studio-marketplace/azure-devops/installs/total/clydedsouza.markdown-to-api?color=brightgreen&logo=visual%20studio)](http://bit.ly/md-to-api) 
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/clydedsouza.markdown-to-api?color=brightgreen&logo=visual%20studio)](http://bit.ly/md-to-api)
+![MIT License](https://img.shields.io/static/v1.svg?label=📜%20License&message=MIT&color=informational) 
+[![Tweet about this](https://img.shields.io/static/v1.svg?label=Tweet%20about%20this&message=🎵&color=blue&logo=twitter&style=social)](https://ctt.ac/jnf7U)      
+            
 ## Tasks
 The extension consists of the following two tasks. You need to add these tasks in this order. 
 1. Install Markdown to API Dependencies   

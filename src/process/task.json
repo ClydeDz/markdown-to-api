@@ -8,8 +8,8 @@
     "category": "Utility",
     "author": "Clyde D'Souza",
     "version": {
-        "Major": 0,
-        "Minor": 3,
+        "Major": 1,
+        "Minor": 0,
         "Patch": 0
     },
     "instanceNameFormat": "Execute Markdown to API",
